@@ -3,20 +3,18 @@ haproxy:
   build: ./haproxy
   ports:
     - '80:80'
+    - '443:443'
+    - '9999:9999'
   links:
     - web0
     - web1
 
 web0:
   build: ./web
-  ports:
-    - 8080
   environment:
     MACHINE: web0
 
 web1:
   build: ./web
-  ports:
-    - 8080
   environment:
     MACHINE: web1
